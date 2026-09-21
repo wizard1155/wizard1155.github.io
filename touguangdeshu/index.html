@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="透光的树 - 捕捉光影交错间的自然之美，探索林间斑驳光影的摄影艺术与自然生态观察指南。">
+    <meta name="keywords" content="透光的树, 森林摄影, 光影艺术, 自然生态, 林间光影, 摄影">
+    <title>透光的树 - 森林光影与自然摄影艺术指南</title>
+    <style>
+        :root {
+            --primary-color: #2d5a27;
+            --secondary-color: #8fbc8f;
+            --accent-color: #f4e4bc;
+            --text-color: #333;
+            --bg-color: #f9f7f2;
+            --card-bg: #ffffff;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/forest_light/1920/1080') no-repeat center center/cover;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1.5rem;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #666;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Gallery / Showcase */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Guide Section */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .guide-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .guide-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .guide-sidebar {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .guide-sidebar h3 {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .checklist li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: start;
+        }
+
+        .checklist li::before {
+            content: "✔";
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            margin-top: 4rem;
+            padding: 4rem 1.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: #666;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-container nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">🌲 <span>透光的树</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#gallery">光影画廊</a></li>
+                    <li><a href="#guide">摄影指南</a></li>
+                    <li><a href="#species">树种解析</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>寻找森林中的光之缝隙</h1>
+            <p>探索“透光的树”这一自然奇观，学习如何在林间捕捉斑驳光影，记录大自然最温柔的笔触。</p>
+            <a href="#guide" class="btn">开始探索</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="container" id="features">
+            <div class="section-header">
+                <h2>为什么关注透光的树？</h2>
+                <p>不仅仅是视觉享受，更是生态与光学的奇妙平衡</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>视觉美学</h3>
+                    <p>阳光穿过树叶的缝隙洒落在地面，形成丁达尔效应。这种自然的光影艺术是摄影师和艺术家永恒的主题，营造出梦幻般的氛围。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>生态指标</h3>
+                    <p>树冠的稀疏程度和透光率直接影响林下植物的生长。透光的树往往意味着健康的生态系统和良好的通风条件。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>摄影灵感</h3>
+                    <p>寻找透光的树是户外摄影的核心技巧之一。通过控制光圈、快门和焦距，可以将复杂的森林转化为极简的光影几何画。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="container" id="gallery">
+            <div class="section-header">
+                <h2>光影画廊</h2>
+                <p>精选林间透光瞬间，感受自然的呼吸</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/forest_sun/400/300" alt="林间阳光">
+                    <div class="gallery-overlay">
+                        <h4>金色的光束</h4>
+                        <p>清晨的第一缕光</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/leaves_sun/400/300" alt="树叶透光">
+                    <div class="gallery-overlay">
+                        <h4>叶脉纹理</h4>
+                        <p>微观视角的透光艺术</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/wood_floor/400/300" alt="树影斑驳">
+                    <div class="gallery-overlay">
+                        <h4>斑驳树影</h4>
+                        <p>地面上的光影游戏</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/forest_deep/400/300" alt="深邃森林">
+                    <div class="gallery-overlay">
+                        <h4>深邃森林</h4>
+                        <p>探索未知的绿意</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="guide">
+            <div class="section-header">
+                <h2>拍摄透光的树：实用指南</h2>
+                <p>如何从新手进阶为光影捕捉大师</p>
+            </div>
+            <div class="guide-layout">
+                <div class="guide-content">
+                    <h3>1. 时间与地点的选择</h3>
+                    <p>拍摄透光的树，时间的选择至关重要。黄金时刻（日出后和日落前一小时）是最佳选择。此时阳光角度低，光线柔和，能够形成最明显的光束。选择植被茂密但不过于拥挤的林地，确保有足够的空隙让光线穿透。</p>
+                    
+                    <h3>2. 设备与参数设置</h3>
+                    <p>建议使用中长焦镜头（70-200mm或更长），以压缩画面空间，突出树干和光束的线条感。光圈建议设置为 f/8 到 f/16 之间，以获得足够的景深，让前景和背景都清晰。如果想要强烈的星芒效果，可以适当缩小光圈（如 f/16）。</p>
+
+                    <h3>3. 构图技巧</h3>
+                    <p>尝试使用三分法构图，将主要的光束或树干置于画面三分之一处。利用前景的树叶增加画面的层次感，同时遮挡部分杂乱的背景。逆光拍摄是表现透光效果的最佳方式，注意对高光部分进行适当测光或使用点测光模式。</p>
+                </div>
+                <aside class="guide-sidebar">
+                    <h3>拍摄清单</h3>
+                    <ul class="checklist">
+                        <li>三脚架（稳定画面）</li>
+                        <li>偏振镜（减少反光）</li>
+                        <li>备用电池（低温耗电快）</li>
+                        <li>防雨装备（户外环境多变）</li>
+                        <li>大光圈镜头（可选）</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题 (FAQ)</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">什么是“丁达尔效应”？</div>
+                    <div class="faq-answer">当一束光线透过胶体，从垂直入射光方向可以观察到胶体里出现的一条光亮的“通路”。在森林中，这表现为阳光穿过树叶缝隙形成的明亮光束。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">阴天能拍出透光的树吗？</div>
+                    <div class="faq-answer">阴天虽然光线柔和，但缺乏明显的方向性和穿透力，很难拍出强烈的光束效果。建议在晴朗或多云天气的清晨或傍晚尝试。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">什么样的树最适合拍摄？</div>
+                    <div class="faq-answer">枝干清晰、叶片稀疏或具有特殊纹理的树种效果更佳。如白桦树、橡树或针叶林，它们能提供更具几何美感的线条。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何避免照片过曝？</div>
+                    <div class="faq-answer">在逆光拍摄时，相机容易误判曝光。建议使用点测光模式对画面中较暗的区域进行测光，或者使用包围曝光功能进行拍摄。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于透光的树</h4>
+                <p>致力于推广自然摄影艺术，分享森林生态之美，让更多人发现生活中被忽视的光影细节。</p>
+            </div>
+            <div class="footer-col">
+                <h4>探索栏目</h4>
+                <ul>
+                    <li><a href="#">摄影器材</a></li>
+                    <li><a href="#">热门路线</a></li>
+                    <li><a href="#">后期调色</a></li>
+                    <li><a href="#">生态保护</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>邮箱: contact@light-trees.com</li>
+                    <li>地址: 自然光影摄影基地</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 透光的树. 保留所有权利. 本网站内容仅供学习与交流。</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                // Close others
+                faqItems.forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                // Toggle current
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
