@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛神木村地图 - 新手入门与详细探索指南</title>
+    <meta name="description" content="本页面提供冒险岛神木村地图的详细导航、入口位置、功能分区介绍及新手成长路线图，帮助玩家快速熟悉神木村环境，开启冒险之旅。">
+    <meta name="keywords" content="冒险岛神木村地图, 冒险岛神木村, 冒险岛新手村, 冒险岛地图, 冒险岛攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-green: #4caf50;
+            --secondary-green: #8bc34a;
+            --dark-green: #2e7d32;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f7f6;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.4)), url('https://picsum.photos/seed/mushroom/1200/600') no-repeat center center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-green);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Map Visualization Section */
+        .map-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: #e8f5e9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #a5d6a7;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-cell {
+            border: 1px dashed #81c784;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--dark-green);
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        .map-cell:hover {
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        .map-cell.highlight {
+            background: rgba(255, 235, 59, 0.3);
+            border-color: #fdd835;
+        }
+
+        .map-cell.player {
+            background: rgba(76, 175, 80, 0.3);
+            border: 2px solid var(--primary-green);
+            font-weight: bold;
+        }
+
+        .map-cell i {
+            font-style: normal;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Location List */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .location-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-green);
+        }
+
+        .location-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--dark-green);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .guide-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .guide-steps {
+            counter-reset: step;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 2rem;
+        }
+
+        .step-item::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            background: var(--primary-green);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: bold;
+        }
+
+        .step-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-green);
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+            font-size: 1.2rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar a {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .sidebar a:hover {
+            color: var(--primary-green);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #263238;
+            color: #cfd8dc;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-green);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #37474f;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-section {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                aspect-ratio: 4/3;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">
+            <span>🍄 冒险岛</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">地图大全</a>
+            <a href="#">职业攻略</a>
+            <a href="#">任务指南</a>
+            <a href="#">社区论坛</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>冒险岛神木村地图</h1>
+        <p>探索蘑菇森林的起点，寻找冒险的伙伴，开启你的英雄之旅。本指南提供最新的地图结构、NPC位置及新手成长路线。</p>
+    </div>
+</div>
+
+<main class="container">
+    <!-- Map Visualization -->
+    <section class="map-section">
+        <h2 class="section-title">神木村地图概览</h2>
+        <div class="map-container">
+            <div class="map-grid">
+                <div class="map-cell player"><i>🧑‍🦲</i>玩家位置</div>
+                <div class="map-cell"><i>🧙</i>凯琳</div>
+                <div class="map-cell"><i>🛒</i>道具店</div>
+                <div class="map-cell"><i>🚪</i>地下城</div>
+                
+                <div class="map-cell"><i>🚢</i>码头</div>
+                <div class="map-cell"><i>🌿</i>蘑菇森林</div>
+                <div class="map-cell highlight"><i>🏰</i>神木村</div>
+                <div class="map-cell"><i>📜</i>公告板</div>
+                
+                <div class="map-cell"><i>🌳</i>休息区</div>
+                <div class="map-cell"><i>🧱</i>砖墙</div>
+                <div class="map-cell"><i>🦎</i>蜥蜴</div>
+                <div class="map-cell"><i>🎒</i>仓库</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+            * 图例示意：玩家位置、重要NPC、商店及特殊区域
+        </div>
+    </section>
+
+    <!-- Location Details -->
+    <section>
+        <h2 class="section-title">核心区域与功能</h2>
+        <div class="location-grid">
+            <article class="location-card">
+                <h3>神木村中心</h3>
+                <p>冒险的起点，新手出生点。这里有公告板、休息区和通往各个方向的出口。</p>
+                <span class="location-tag">新手必经</span>
+            </article>
+            <article class="location-card">
+                <h3>道具店</h3>
+                <p>由蜘蛛帕比经营，可以购买初级武器、防具和恢复药水。</p>
+                <span class="location-tag">日常消耗</span>
+            </article>
+            <article class="location-card">
+                <h3>凯琳的船只</h3>
+                <p>位于地图最上方，连接至勇士部落，是转职前的必经之路。</p>
+                <span class="location-tag">传送点</span>
+            </article>
+            <article class="location-card">
+                <h3>地下城入口</h3>
+                <p>通往“神木村地下城”的入口，适合低等级玩家组队练级。</p>
+                <span class="location-tag">副本</span>
+            </article>
+        </div>
+    </section>
+
+    <!-- Guide & FAQ -->
+    <section class="guide-section">
+        <div class="guide-content">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">新手成长路线图</h2>
+            <div class="guide-steps">
+                <div class="step-item">
+                    <h4>1. 接受初始任务</h4>
+                    <p>在神木村中心找到新手引导员，完成“成为英雄”的任务线，获取基础装备和技能。</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. 探索周边地图</h4>
+                    <p>从神木村出发，向左前往蘑菇森林（1-10级练级区），或向右探索神木村外围。</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. 准备转职</h4>
+                    <p>当等级达到10级时，回到神木村，前往凯琳处完成转职任务。</p>
+                </div>
+                <div class="step-item">
+                    <h4>4. 离开神木村</h4>
+                    <p>转职完成后，乘坐凯琳的船只前往勇士部落，开启更广阔的冒险世界。</p>
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <h3>快速导航</h3>
+            <ul>
+                <li><a href="#">勇士部落传送</a></li>
+                <li><a href="#">神木村地下城攻略</a></li>
+                <li><a href="#">新手任务列表</a></li>
+                <li><a href="#">NPC位置图解</a></li>
+                <li><a href="#">装备合成配方</a></li>
+            </ul>
+            <h3 style="margin-top: 2rem;">常见问题</h3>
+            <ul>
+                <li><a href="#">神木村怎么去？</a></li>
+                <li><a href="#">凯琳在哪里？</a></li>
+                <li><a href="#">神木村地下城多少级进？</a></li>
+            </ul>
+        </aside>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">关于神木村的常见问题</h2>
+        <div class="faq-item">
+            <h4>Q: 神木村只有一条路吗？</h4>
+            <p>A: 神木村内部结构相对紧凑，主要出口有通往勇士部落的码头、通往蘑菇森林的路径以及通往神木村地下城的入口。</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q: 在神木村哪里可以修理装备？</h4>
+            <p>A: 在神木村中心区域，通常可以在道具店附近或通过特定NPC进行装备修理。</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q: 如何快速找到NPC凯琳？</h4>
+            <p>A: 凯琳位于神木村地图的最上方区域，靠近船只图标，是进入勇士部落的关键人物。</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>冒险岛百科</h4>
+                <p>致力于提供最准确、最全面的冒险岛游戏地图与攻略信息。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">勇士部落</a></li>
+                    <li><a href="#">废弃都市</a></li>
+                    <li><a href="#">天空之城</a></li>
+                    <li><a href="#">神木村</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 冒险岛游戏资料站. 本站为玩家整理的地图导航指南，非官方网站。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                  </html>
