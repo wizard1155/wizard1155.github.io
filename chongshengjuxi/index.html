@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重生巨蜥-史前巨兽复生模拟与百科图鉴</title>
+    <meta name="description" content="重生巨蜥专题页，提供史前巨蜥复生模拟、生物图鉴、生存环境分析及进化特征科普，探索远古爬行动物的生存法则。">
+    <meta name="keywords" content="重生巨蜥,史前巨蜥,科莫多巨蜥,远古生物,爬行动物,巨蜥图鉴">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d5a27;
+            --secondary-color: #4a7c44;
+            --accent-color: #d4a017;
+            --text-dark: #1f2937;
+            --text-light: #f3f4f6;
+            --bg-light: #f9fafb;
+            --bg-dark: #111827;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #374151;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            outline: none;
+            background: #374151;
+            color: white;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0 0.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/rebirthlizard/1600/900') no-repeat center center/cover;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--bg-dark);
+            font-weight: bold;
+            border-radius: 4px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e6b824;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--bg-dark);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            color: var(--bg-dark);
+        }
+
+        /* Featured Species (Grid) */
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .species-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .species-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .card-meta {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #374151;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background-color: #f3f4f6;
+            padding: 3rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: var(--card-shadow);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        /* Simulation Info */
+        .sim-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .info-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .info-text p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-list li::before {
+            content: "✔";
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .sim-visual {
+            background: var(--bg-dark);
+            border-radius: 8px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sim-visual::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .stat-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: white;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9fafb;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background-color: #f9fafb;
+            color: #4b5563;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: #9ca3af;
+            padding: 3rem 1rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .sim-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>🦎</span> 重生巨蜥百科
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#featured">图鉴精选</a></li>
+                    <li><a href="#simulation">模拟分析</a></li>
+                    <li><a href="#comparison">物种对比</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索物种...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索重生巨蜥的远古世界</h1>
+            <p>从科莫多巨蜥到史前巨兽，解析这些顶级掠食者的生存策略、生理特征与进化奥秘。</p>
+            <button class="btn" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">开始探索</button>
+            <button class="btn btn-outline">阅读科普文章</button>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Featured Species Section -->
+        <section id="featured">
+            <h2 class="section-title">热门物种图鉴</h2>
+            <div class="species-grid">
+                <!-- Card 1 -->
+                <article class="species-card">
+                    <img src="https://picsum.photos/seed/comodo/400/300" alt="科莫多巨蜥" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">科莫多巨蜥</h3>
+                        <div class="card-meta">
+                            <span>现存最大蜥蜴</span>
+                            <span>濒危物种</span>
+                        </div>
+                        <p class="card-desc">作为现存体型最大的蜥蜴，科莫多巨蜥拥有强大的咬合力和毒液系统，是印尼科莫多国家公园的顶级掠食者。</p>
+                        <div class="card-footer">
+                            <span class="tag">食肉</span>
+                            <span class="tag">群居</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="species-card">
+                    <img src="https://picsum.photos/seed/timorex/400/300" alt="科莫多龙" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">科莫多龙</h3>
+                        <div class="card-meta">
+                            <span>巨蜥亚科</span>
+                            <span>岛屿特有种</span>
+                        </div>
+                        <p class="card-desc">科莫多巨蜥的正式名称。它们适应了岛屿的恶劣环境，能够长时间潜伏并伏击猎物，是真正的生存大师。</p>
+                        <div class="card-footer">
+                            <span class="tag">伏击</span>
+                            <span>毒液</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="species-card">
+                    <img src="https://picsum.photos/seed/savannah/400/300" alt="萨瓦纳巨蜥" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">萨瓦纳巨蜥</h3>
+                        <div class="card-meta">
+                            <span>草食性为主</span>
+                            <span>非洲分布</span>
+                        </div>
+                        <p class="card-desc">不同于科莫多巨蜥，萨瓦纳巨蜥更多以植物为食，但在必要时也会捕食小型哺乳动物，展现了巨蜥家族的多样性。</p>
+                        <div class="card-footer">
+                            <span class="tag">杂食</span>
+                            <span>温和</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="species-card">
+                    <img src="https://picsum.photos/seed/monitor/400/300" alt="巨蜥科" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">巨蜥科 (Varanidae)</h3>
+                        <div class="card-meta">
+                            <span>爬行纲</span>
+                            <span>古老家族</span>
+                        </div>
+                        <p class="card-desc">巨蜥科是现存蜥蜴中最大的科，成员遍布热带和亚热带地区，从树栖到地栖，进化出了多种生存策略。</p>
+                        <div class="card-footer">
+                            <span class="tag">爬行</span>
+                            <span>分布广</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Simulation & Analysis Section -->
+        <section id="simulation">
+            <div class="sim-info-grid">
+                <div class="info-text">
+                    <h3>重生模拟：巨蜥的生理优势</h3>
+                    <p>通过现代生物学视角，我们模拟了巨蜥在野外环境中的表现，揭示了它们能够成为顶级掠食者的核心原因。</p>
+                    <ul class="info-list">
+                        <li>高代谢率：即使在休息时也能保持较高的能量消耗。</li>
+                        <li>嗅觉雷达：灵敏的舌头能捕捉空气中微量的气味分子。</li>
+                        <li>耐力狩猎：拥有强大的心肺功能，能进行长距离追逐。</li>
+                        <li>免疫系统：独特的菌群有助于抵御猎物伤口的感染。</li>
+                    </ul>
+                </div>
+                <div class="sim-visual">
+                    <h4>生存数据模拟</h4>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.8;">基于野外观测数据的估算值</p>
+                    <div>
+                        <div class="stat-box">
+                            <span class="stat-number">3m+</span>
+                            <span class="stat-label">最大体长</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">70kg</span>
+                            <span class="stat-label">平均体重</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">10km/h</span>
+                            <span class="stat-label">奔跑速度</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section id="comparison">
+            <h2 class="section-title">主要巨蜥品种对比</h2>
+            <div class="comparison-section">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>特征</th>
+                            <th>科莫多巨蜥</th>
+                            <th>树巨蜥</th>
+                            <th>萨瓦纳巨蜥</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>主要栖息地</strong></td>
+                            <td>印度尼西亚岛屿</td>
+                            <td>澳大利亚/东南亚雨林</td>
+                            <td>非洲热带草原</td>
+                        </tr>
+                        <tr>
+                            <td><strong>饮食习惯</strong></td>
+                            <td>腐肉、活体猎物</td>
+                            <td>昆虫、小型脊椎动物</td>
+                            <td>果实、昆虫、小型动物</td>
+                        </tr>
+                        <tr>
+                            <td><strong>体型特征</strong></td>
+                            <td>地面行走，粗壮</td>
+                            <td>树栖，四肢细长</td>
+                            <td>体型中等，适应奔跑</td>
+                        </tr>
+                        <tr>
+                            <td><strong>繁殖方式</strong></td>
+                            <td>卵生，孵化期长</td>
+                            <td>卵生</td>
+                            <td>卵生</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2 class="section-title">常见问题解答</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        重生巨蜥在现实中真的存在吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>“重生巨蜥”通常指代科幻小说或影视作品中的概念。在现实生物学中，科莫多巨蜥是现存最大的蜥蜴，但它并非从恐龙时代直接“重生”的物种，而是爬行动物演化树上的现存分支。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        科莫多巨蜥的毒液有什么作用？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>科莫多巨蜥的毒液含有多种蛋白质，能降低血压、导致剧烈疼痛和大量出血。这不仅能阻止猎物逃跑，还能防止猎物死后立刻被其他捕食者抢走。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        巨蜥会攻击人类吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>野生科莫多巨蜥具有攻击性，但它们通常避免与大型哺乳动物正面冲突。除非受到威胁或护巢，否则它们倾向于逃避。然而，人类必须始终保持安全距离，尊重野生动物。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        巨蜥的寿命有多长？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>在野外，科莫多巨蜥的寿命通常在30到40年左右。在人工饲养环境中，由于饮食和医疗条件的改善，它们的寿命可以延长至50年以上。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p>本站致力于提供关于巨蜥、爬行动物及史前生物的科普资料与模拟分析。内容基于现有科学研究成果整理。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#featured">物种图鉴</a></li>
+                    <li><a href="#simulation">模拟分析</a></li>
+                    <li><a href="#comparison">物种对比</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关资源</h4>
+                <ul>
+                    <li><a href="#">自然纪录片</a></li>
+                    <li><a href="#">野外考察日志</a></li>
+                    <li><a href="#">保护组织</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 重生巨蜥百科. All Rights Reserved. 仅供科普与学习使用。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for Anchor Links (Polyfill-like behavior for older browsers)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
