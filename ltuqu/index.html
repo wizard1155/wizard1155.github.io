@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅途去 - 深度旅行攻略与目的地指南</title>
+    <meta name="description" content="旅途去提供全球热门旅行目的地的深度攻略、实用路线规划、当地美食推荐及住宿预订指南。从自然风光到人文历史，助您规划完美的出行体验。">
+    <meta name="keywords" content="旅途去,旅行攻略,旅游指南,目的地推荐,旅行路线,自驾游">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00897b;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f8f9fa;
+            --bg-white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #00695c;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--bg-body);
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding-left: 8px;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/travel_hero/1920/1080.jpg') center/cover no-repeat;
+            z-index: -1;
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Search Filter */
+        .search-filter {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-top: -50px;
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Popular Destinations */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--secondary-color);
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .guide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .guide-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .guide-image {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: var(--bg-white);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+            background: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-wrapper { flex-direction: column; height: auto; padding: 1rem 0; gap: 1rem; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .search-bar { display: none; } /* Simplified for mobile */
+            .guide-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .search-filter { margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
+                旅途去<span>.com</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">国内游</a></li>
+                    <li><a href="#">出境游</a></li>
+                    <li><a href="#">攻略中心</a></li>
+                    <li><a href="#">酒店预订</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索目的地、景点...">
+                <button class="btn btn-primary" style="padding: 5px 15px; font-size: 0.9rem;">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>出发，去发现世界的美好</h1>
+                <p>旅途去为您提供最全面的旅行灵感与实用指南，让每一次出行都成为难忘的回忆。</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#destinations" class="btn btn-primary">浏览热门目的地</a>
+                    <a href="#guide" class="btn btn-outline" style="color: white; border-color: white;">制定旅行计划</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Filter -->
+        <div class="container">
+            <div class="search-filter">
+                <div class="filter-group">
+                    <label>旅行类型</label>
+                    <select>
+                        <option>全部类型</option>
+                        <option>自然风光</option>
+                        <option>人文历史</option>
+                        <option>城市休闲</option>
+                        <option>美食探索</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>出行季节</label>
+                    <select>
+                        <option>不限季节</option>
+                        <option>春季 (3-5月)</option>
+                        <option>夏季 (6-8月)</option>
+                        <option>秋季 (9-11月)</option>
+                        <option>冬季 (12-2月)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>预算范围</label>
+                    <select>
+                        <option>不限预算</option>
+                        <option>经济实惠</option>
+                        <option>中等消费</option>
+                        <option>高端奢华</option>
+                    </select>
+                </div>
+                <div class="filter-group" style="justify-content: flex-end;">
+                    <button class="btn btn-primary" style="width: 100%;">筛选行程</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <section class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>深度地图</h3>
+                    <p>详细的景点分布与步行路线规划，助您不走回头路。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>实况攻略</h3>
+                    <p>基于真实用户反馈的最新避雷指南与游玩技巧。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>省钱秘籍</h3>
+                    <p>交通、住宿、餐饮全方位省钱方案，让旅行更轻松。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全保障</h3>
+                    <p>紧急联系方式与当地安全提示，为您的旅途保驾护航。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Destinations -->
+        <section id="destinations" class="container">
+            <h2 class="section-title">热门目的地推荐</h2>
+            <div class="destinations-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/sanya/400/300.jpg" alt="三亚">
+                        <span class="card-badge">海岛度假</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 中国·海南</span>
+                            <span class="rating">★★★★★ 4.9</span>
+                        </div>
+                        <h3 class="card-title">三亚：热带风情的度假天堂</h3>
+                        <p class="card-desc">享受阳光、沙滩与碧海蓝天，体验潜水与海鲜美食的完美结合，是家庭出游的首选之地。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥3000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/lhasa/400/300.jpg" alt="拉萨">
+                        <span class="card-badge">人文历史</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 中国·西藏</span>
+                            <span class="rating">★★★★★ 4.8</span>
+                        </div>
+                        <h3 class="card-title">拉萨：离天堂最近的城市</h3>
+                        <p class="card-desc">布达拉宫的庄严、大昭寺的虔诚，感受藏传佛教文化的独特魅力，洗涤心灵之旅。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥5000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/kyoto/400/300.jpg" alt="京都">
+                        <span class="card-badge">异国风情</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 日本·京都</span>
+                            <span class="rating">★★★★☆ 4.7</span>
+                        </div>
+                        <h3 class="card-title">京都：古韵与禅意的交织</h3>
+                        <p class="card-desc">漫步在祗园的街头，探访千年古刹，在樱花季或红叶季体验极致的东方美学。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥8000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/iceland/400/300.jpg" alt="冰岛">
+                        <span class="card-badge">自然奇观</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 冰岛</span>
+                            <span class="rating">★★★★★ 4.9</span>
+                        </div>
+                        <h3 class="card-title">冰岛：冰与火之歌的现场</h3>
+                        <p class="card-desc">追逐极光，探索冰川与火山，体验地球上最像外星的地方，勇敢者的试炼场。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥15000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/paris/400/300.jpg" alt="巴黎">
+                        <span class="card-badge">浪漫之都</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 法国·巴黎</span>
+                            <span class="rating">★★★★☆ 4.6</span>
+                        </div>
+                        <h3 class="card-title">巴黎：时尚与艺术的中心</h3>
+                        <p class="card-desc">参观卢浮宫与埃菲尔铁塔，在塞纳河畔野餐，感受法式生活的优雅与浪漫。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥12000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/sanya/400/300.jpg" alt="大理">
+                        <span class="card-badge">慢生活</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📍 中国·云南</span>
+                            <span class="rating">★★★★☆ 4.8</span>
+                        </div>
+                        <h3 class="card-title">大理：苍山洱海边的闲适时光</h3>
+                        <p class="card-desc">租一辆吉普车环洱海骑行，在古城里发呆晒太阳，找回内心的平静。</p>
+                        <div class="card-footer">
+                            <span>人均预算: ¥2000+</span>
+                            <a href="#" style="color: var(--primary-color); font-weight: bold;">查看攻略 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn btn-outline">查看更多目的地</a>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container guide-grid">
+                <div class="guide-image">
+                    <img src="https://picsum.photos/seed/travel_planning/600/400.jpg" alt="旅行规划" class="guide-image">
+                </div>
+                <div class="guide-content">
+                    <h2>旅行前的准备清单</h2>
+                    <p>一次成功的旅行离不开周密的规划。无论是短途周末游还是长途跨国行，掌握这些准备技巧能让您的旅途更加顺畅。</p>
+                    <ul class="check-list">
+                        <li>证件准备：确保护照、签证及身份证在有效期内。</li>
+                        <li>行程规划：提前预订机票和酒店，避开旺季高峰。</li>
+                        <li>健康防护：根据目的地气候准备常用药品。</li>
+                        <li>保险购买：购买涵盖意外医疗的旅行保险。</li>
+                        <li>财物安全：分散存放现金，贵重物品随身携带。</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn btn-primary">下载完整PDF指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container faq-section">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>如何选择适合自己的旅行目的地？</span>
+                    <span class="icon-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>首先考虑您的出行时间和预算。如果您喜欢自然风光，可以选择云南、西藏等地；如果您偏好城市购物和文化体验，可以考虑上海、东京或巴黎。旅途去提供详细的目的地分析，帮助您做出决策。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>独自旅行安全吗？需要注意什么？</span>
+                    <span class="icon-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>独自旅行虽然自由，但安全是第一位的。建议您提前告知亲友行程，住宿选择正规酒店，夜间避免单独前往偏僻区域，并时刻保持手机电量充足以备紧急联系。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>淡季出行有什么优势？</span>
+                    <span class="icon-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>淡季出行最大的优势是价格更实惠，机票和住宿折扣力度大。同时，游客较少，您可以更安静地欣赏景点，体验当地人的真实生活，拍照也更容易避开人群。</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于旅途去</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        旅途去致力于为旅行爱好者提供最真实、最实用的旅行信息。我们相信，每一次出发都是一次新的成长。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>热门分类</h3>
+                    <ul>
+                        <li><a href="#">国内游攻略</a></li>
+                        <li><a href="#">出境游指南</a></li>
+                        <li><a href="#">自驾游路线</a></li>
+                        <li><a href="#">签证办理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">用户反馈</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">获取最新旅行优惠与灵感</p>
+                    <div style="display: flex; gap: 10px;">
+                        <span style="background:#333; padding:5px 10px; border-radius:4px;">微信</span>
+                        <span style="background:#333; padding:5px 10px; border-radius:4px;">微博</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 旅途去 版权所有. 本站内容仅供参考，具体以实际为准。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
