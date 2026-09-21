@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5151最新四虎-精选高清影视与娱乐资源导航平台</title>
+    <meta name="description" content="5151最新四虎提供最新的影视资讯、高清资源导航及娱乐社区讨论。我们致力于为用户打造安全、便捷的在线观看与分享体验，涵盖热门影视、动漫及独家内容。">
+    <meta name="keywords" content="5151最新四虎,高清影视,娱乐资讯,在线观看,资源导航">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #f1faee;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f1f1;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2a4d69 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        aside {
+            margin-top: 40px;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 12px;
+            margin-right: 12px;
+            font-weight: 600;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ff4757; color: white; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ffa502; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #2ed573; color: white; }
+
+        .rank-info {
+            flex-grow: 1;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .rank-up {
+            font-size: 12px;
+            color: #2ed573;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">5151<span>最新四虎</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门推荐</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">高清专区</a></li>
+                    <li><a href="#">排行榜</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索资源...">
+                <button type="button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索娱乐新视界</h1>
+                <p>汇集全网最新、最热的影视与娱乐资源，为您提供流畅、高清的在线观看体验。</p>
+                <div class="hero-tags">
+                    <span class="tag">高清画质</span>
+                    <span class="tag">极速加载</span>
+                    <span class="tag">安全无毒</span>
+                    <span class="tag">每日更新</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-content">
+            <div class="grid-layout">
+                <!-- Featured Card -->
+                <article class="card" style="grid-column: span 2; display: flex; flex-direction: row;">
+                    <div class="card-img-wrapper" style="width: 40%; min-width: 300px; padding-top: 0;">
+                        <img src="https://picsum.photos/seed/hero1/600/400" alt="Featured Content">
+                        <span class="card-badge">今日推荐</span>
+                    </div>
+                    <div class="card-content" style="justify-content: center;">
+                        <h2 class="card-title">独家首播：探索未知的边界</h2>
+                        <p class="card-desc">这是一部备受瞩目的年度大作，融合了顶尖的制作团队与震撼的视听效果。本季剧情跌宕起伏，角色塑造深入人心，绝对不容错过。</p>
+                        <a href="#" class="card-btn">立即观看</a>
+                    </div>
+                </article>
+
+                <!-- Standard Cards -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/movie1/400/300" alt="Movie Thumbnail">
+                        <span class="card-badge">更新中</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">星际穿越：未完待续</h3>
+                        <div class="card-meta">
+                            <span>2023-10-24</span>
+                            <span>2.3万人观看</span>
+                        </div>
+                        <p class="card-desc">在遥远的未来，人类为了生存再次踏上征途，跨越星河寻找新的家园。</p>
+                        <a href="#" class="card-btn">进入观看</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/movie2/400/300" alt="Movie Thumbnail">
+                        <span class="card-badge">热门</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">都市传说：深夜食堂</h3>
+                        <div class="card-meta">
+                            <span>2023-10-23</span>
+                            <span>1.8万人观看</span>
+                        </div>
+                        <p class="card-desc">在这个城市，只有深夜才会出现的神秘食堂，据说能治愈所有的不开心。</p>
+                        <a href="#" class="card-btn">进入观看</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/movie3/400/300" alt="Movie Thumbnail">
+                        <span class="card-badge">新片</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">极限运动挑战赛</h3>
+                        <div class="card-meta">
+                            <span>2023-10-22</span>
+                            <span>9000+观看</span>
+                        </div>
+                        <p class="card-desc">汇聚全球顶尖极限运动员，挑战人类体能极限的精彩赛事回顾。</p>
+                        <a href="#" class="card-btn">进入观看</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/movie4/400/300" alt="Movie Thumbnail">
+                        <span class="card-badge">高清</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">经典重现：老电影展映</h3>
+                        <div class="card-meta">
+                            <span>2023-10-21</span>
+                            <span>1.2万人观看</span>
+                        </div>
+                        <p class="card-desc">重温那些年我们追过的经典，修复版画质带给你不一样的怀旧体验。</p>
+                        <a href="#" class="card-btn">进入观看</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">本周热门排行</h2>
+                <a href="#" style="font-size: 14px; color: var(--primary-color);">查看更多 &rarr;</a>
+            </div>
+            
+            <div class="grid-layout" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                <article class="card" style="padding: 15px; text-align: center;">
+                    <div class="card-img-wrapper" style="padding-top: 140%;">
+                        <img src="https://picsum.photos/seed/rank1/200/280" alt="Rank 1">
+                    </div>
+                    <h3 class="card-title" style="font-size: 15px; margin: 10px 0;">超级英雄归来</h3>
+                    <a href="#" class="card-btn" style="padding: 8px; font-size: 12px;">观看</a>
+                </article>
+                <article class="card" style="padding: 15px; text-align: center;">
+                    <div class="card-img-wrapper" style="padding-top: 140%;">
+                        <img src="https://picsum.photos/seed/rank2/200/280" alt="Rank 2">
+                    </div>
+                    <h3 class="card-title" style="font-size: 15px; margin: 10px 0;">深海探险记</h3>
+                    <a href="#" class="card-btn" style="padding: 8px; font-size: 12px;">观看</a>
+                </article>
+                <article class="card" style="padding: 15px; text-align: center;">
+                    <div class="card-img-wrapper" style="padding-top: 140%;">
+                        <img src="https://picsum.photos/seed/rank3/200/280" alt="Rank 3">
+                    </div>
+                    <h3 class="card-title" style="font-size: 15px; margin: 10px 0;">赛博朋克2077</h3>
+                    <a href="#" class="card-btn" style="padding: 8px; font-size: 12px;">观看</a>
+                </article>
+                <article class="card" style="padding: 15px; text-align: center;">
+                    <div class="card-img-wrapper" style="padding-top: 140%;">
+                        <img src="https://picsum.photos/seed/rank4/200/280" alt="Rank 4">
+                    </div>
+                    <h3 class="card-title" style="font-size: 15px; margin: 10px 0;">末日生存指南</h3>
+                    <a href="#" class="card-btn" style="padding: 8px; font-size: 12px;">观看</a>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        5151最新四虎致力于为用户提供最优质的在线娱乐体验。我们拥有丰富的资源库和先进的播放技术，确保每一位用户都能享受流畅的观影时光。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门分类</h3>
+                    <ul>
+                        <li><a href="#">动作片</a></li>
+                        <li><a href="#">爱情片</a></li>
+                        <li><a href="#">科幻片</a></li>
+                        <li><a href="#">纪录片</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <p style="font-size: 14px;">获取最新资讯与独家福利，请关注我们的社交媒体账号。</p>
+                    <div style="margin-top: 15px; font-size: 20px;">
+                        <!-- Simple Icon Placeholders -->
+                        <span style="margin-right: 10px;">📘</span>
+                        <span style="margin-right: 10px;">🐦</span>
+                        <span>📷</span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 5151最新四虎. All Rights Reserved. 本站内容仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
